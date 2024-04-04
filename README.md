@@ -69,56 +69,38 @@ Write the detailed procedure here
 **Program:**
 
 /* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
+Developed by: jaya varsha T
+RegisterNumber: 212223040075*/
+```
+//full adder
+module fulladd(sum,cout,a,b,cin);
+   output sum;
+	output cout;
+	input a;
+	input b;
+	input cin;
+	
+	      //Internal nets
+ wire sl,cl,c2;
 
-~~~
-
-## Full_adder
-module fulladd_top(a,b,cin,sum,carry);
-input a,b,cin;
-output sum,carry;
-wire w1,w2,w3,w4;       
-xor(w1,a,b);
-xor(sum,w1,cin);        
-
-and(w2,a,b);
-and(w3,b,cin);
-and(w4,cin,a);
-
-or(carry,w2,w3,w4);
-endmodule 
-
-## Full_subtractor
-module fullsub_top(a,b,Bin,BO,DIFF);
-input a,b,Bin;
-output BO,DIFF;
-assign DIFF = a ^ b ^ Bin;
-  assign BO = (a & b) | ((a ^ b) & Bin);
-endmodule
-
-
-Developed by: VARSHA A
-RegisterNumber: 212223220121
-~~~
-
-*/
+  //Instantiate logic gate primitives
+ xor(sl,a,b);
+ and(cl,a,b);
+ xor(sum,sl,cin);
+ and(c2,sl,cin);
+ or(cout,c2,cl);
+ 
+ endmodule
+```
+![code](https://github.com/jayavarsha23219/FULL_ADDER_SUBTRACTOR/assets/150780319/3f7af2c5-d024-4da1-b97a-27bd773ea72d)
 
 **RTL Schematic**
-
-![318332382-c01e6c3c-d648-4bad-8a98-66d93df13f1a](https://github.com/04Varsha/FULL_ADDER_SUBTRACTOR/assets/149035374/2e45d893-4f83-4a98-8bc2-d0d30b70e7e2)
+![rtl](https://github.com/jayavarsha23219/FULL_ADDER_SUBTRACTOR/assets/150780319/6f5378ea-f658-48ad-96a1-08aa1259b4e1)
 
 **Output Timing Waveform**
-
-**FULL ADDER**
-
-![318332443-3411cbc7-4f76-4664-a513-e348a9880eff](https://github.com/04Varsha/FULL_ADDER_SUBTRACTOR/assets/149035374/5d286c1d-e62e-454a-a389-00ba2c2a91fc)
-
-**FULL SUBTRACTOR**
-
-![318332487-1cc068c4-6398-4a52-bae8-39c6657c0a9a](https://github.com/04Varsha/FULL_ADDER_SUBTRACTOR/assets/149035374/03d5d030-815e-4847-a976-2fd282cf0333)
-
+![output](https://github.com/jayavarsha23219/FULL_ADDER_SUBTRACTOR/assets/150780319/96348570-233d-4d85-a3c5-2bca2af2fa70)
 
 **Result:**
-
 Thus the Full Adder and Full Subtractor circuits are designed and the truth tables is verified using Quartus software.
 
 
